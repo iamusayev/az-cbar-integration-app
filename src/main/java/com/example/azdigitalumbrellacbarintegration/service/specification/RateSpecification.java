@@ -1,0 +1,46 @@
+package com.example.azdigitalumbrellacbarintegration.service.specification;
+
+
+import com.example.azdigitalumbrellacbarintegration.dao.entity.RateEntity;
+import com.example.azdigitalumbrellacbarintegration.model.criteria.RateCriteria;
+import com.example.azdigitalumbrellacbarintegration.model.enums.Status;
+import org.springframework.data.jpa.domain.Specification;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class RateSpecification implements Specification<RateEntity> {
+
+    private RateCriteria rateCriteria;
+
+    private static final String CURRENCY = "code";
+    private static final String DATE = "date";
+    private static final String STATUS = "status";
+
+    public RateSpecification(RateCriteria rateCriteria) {
+        this.rateCriteria = rateCriteria;
+    }
+
+    @Override
+    public Predicate toPredicate(Root<RateEntity> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+        List<Predicate> predicates = new ArrayList<>();
+        if (rateCriteria != null) {
+            if (rateCriteria.getCurrency() != null) {
+                predicates.add(criteriaBuilder.equal(root.get(CURRENCY),
+                        rateCriteria.getCurrency()));
+            }
+            if (rateCriteria.getDate() != null) {
+                predicates.add(criteriaBuilder.equal(root.get(DATE),
+                        LocalDate.parse(rateCriteria.getDate())));
+            }
+            predicates.add(criteriaBuilder.equal(root.get(STATUS),
+                    Status.ACTIVE));
+        }
+        return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+    }
+}
