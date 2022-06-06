@@ -95,11 +95,13 @@ example:
 
 [![Inkedrefresh-ttt-LI.jpg](https://i.postimg.cc/154p7bC6/Inkedrefresh-ttt-LI.jpg)](https://postimg.cc/hfWzfZqP)
 
-**Save information to database**
-   
+**Save information to database** 
+
+Local date parameter example: (year-month-day)
+
   - POST
   
-        localhost:8088/v1/rates?date=2022-06-03       (example: year-month-day)
+        localhost:8088/v1/rates?date=2022-06-03       
 
 example:
 
