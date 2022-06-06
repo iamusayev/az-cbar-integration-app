@@ -19,7 +19,7 @@ public class AuthController {
 
 
     @GetMapping("/token/refresh")
-    public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void refreshToken(HttpServletRequest request, HttpServletResponse response) {
         tokenService.refreshToken(request, response);
     }
 
