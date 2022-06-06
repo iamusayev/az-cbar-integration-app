@@ -19,12 +19,15 @@ import java.util.List;
 @Getter
 @ToString
 public class ValCurs implements Serializable {
-@XmlAttribute(name = "Date")
-    public String LocalDate;
+    
+    @XmlAttribute(name = "Date")
+    public String localDate;
+    
     @XmlAttribute(name = "Name")
-    public String Name;
+    public String name;
+    
     @XmlAttribute(name = "Description")
-    public String Description;
+    public String description;
 
-    public List<ValType> ValType;
+    public List<ValType> valType;
 }
