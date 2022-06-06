@@ -57,5 +57,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+    
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+
+    @Bean
+    PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 }
