@@ -69,9 +69,10 @@ https://www.cbar.az/currencies/25.05.2022.xml
 To call HTTP methods POST and DELETE you need to authorize. For obtaining authorization information you need to call URL
 - 
 
-    POST
-    localhost:8088/v1/auth/login?username=admin&password=admin1234
-
+- POST 
+        
+      localhost:8088/v1/auth/login?username=admin&password=admin1234
+   
 example:
 
 [![acess-and-refresh.png](https://i.postimg.cc/wvsVrZT0/acess-and-refresh.png)](https://postimg.cc/zb8Kbdhg)
@@ -83,9 +84,10 @@ You need to send the "access" token in the request's header by calling POST and 
 
 
  "access" token expires in 10 minutes. To refresh it you need to navigate to 
+
+ - GET
     
-    GET
-    localhost:8088/v1/auth/token/refresh 
+       localhost:8088/v1/auth/token/refresh 
 
 and in the request's header send "refresh token".
 
@@ -95,17 +97,18 @@ example:
 
 **Save information to database**
    
-    POST
-    localhost:8088/v1/rates?date=2022-06-03       (example: year-month-day)
+  - POST
+  
+        localhost:8088/v1/rates?date=2022-06-03       (example: year-month-day)
 
 example:
 
 [![postik.png](https://i.postimg.cc/g2XKSrc3/postik.png)](https://postimg.cc/jDTNCx7j)
 
 **Delete information**
+  - DELETE
   
-    DELETE
-    localhost:8088/v1/rates?date=2022-06-03
+        localhost:8088/v1/rates?date=2022-06-03
 
 example: 
 
@@ -118,19 +121,25 @@ No authorization needed for the following methods
 
  **Get by date and currency**
 
-     GET
+  - GET
+  
+
      localhost:8088/v1/rates?date=2022-06-03&currency=USD&count=10&page=0
 
 
 **Get by date**
           
-     GET
+  - GET
+  
+   
      localhost:8088/v1/rates?date=2022-06-03&count=10&page=0
 
 
 **Get by currency**
      
-     GET
+- GET
+  
+    
      localhost:8088/v1/rates?currency=USD&count=10&page=0
 
 
