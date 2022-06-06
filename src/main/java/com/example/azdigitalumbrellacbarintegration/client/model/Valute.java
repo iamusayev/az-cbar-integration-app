@@ -11,10 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
 @XmlRootElement(name = "Valute")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@ToString
+@Data
 public class Valute  {
 
     @XmlAttribute(name = "Code")
