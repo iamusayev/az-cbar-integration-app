@@ -101,7 +101,7 @@ Local date parameter example: (year-month-day)
 
   - POST
   
-        localhost:8088/v1/rates?date=2022-06-03       
+        localhost:8088/v1/rates?date=2022-06-03
 
 example:
 
