@@ -14,10 +14,7 @@ import java.util.List;
 
 @XmlRootElement(name = "ValCurs")
 @XmlAccessorType(XmlAccessType.FIELD)
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@ToString
+@Data
 public class ValCurs implements Serializable {
     
     @XmlAttribute(name = "Date")
