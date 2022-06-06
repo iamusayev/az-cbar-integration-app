@@ -1,4 +1,4 @@
-﻿Task introduction
+Task introduction
 -
 
 
@@ -32,7 +32,7 @@ https://www.cbar.az/currencies/25.05.2022.xml
     - Deleting saved rates for the selected date;
 
  
- - Obtaining information on AZN rates 
+ - Obtaining information on AZN rates
      - Obtaining the exchange rate of the Azerbaijani manat on the selected date and
    against the selected currency;
     - Acquisition of the exchange rate of the Azerbaijani manat against all foreign
@@ -70,7 +70,7 @@ To call HTTP methods POST and DELETE you need to authorize. For obtaining author
 - 
 
     POST
-    localhost:8080/v1/auth?username=admin&password=admin1234
+    localhost:8088/v1/auth/login?username=admin&password=admin1234
 
 example:
 
@@ -85,7 +85,7 @@ You need to send the "access" token in the request's header by calling POST and 
  "access" token expires in 10 minutes. To refresh it you need to navigate to 
     
     GET
-    localhost:8080/v1/auth/refresh/token 
+    localhost:8088/v1/auth/token/refresh 
 
 and in the request's header send "refresh token".
 
@@ -96,7 +96,7 @@ example:
 **Save information to database**
    
     POST
-    localhost:8080/rates?date=2022-04-03       (example: year-month-day)
+    localhost:8088/v1/rates?date=2022-06-03       (example: year-month-day)
 
 example:
 
@@ -105,7 +105,7 @@ example:
 **Delete information**
   
     DELETE
-    localhost:8088/rates?date=2022-04-03
+    localhost:8088/v1/rates?date=2022-06-03
 
 example: 
 
@@ -119,19 +119,19 @@ No authorization needed for the following methods
  **Get by date and currency**
 
      GET
-     localhost:8088?date=2022-06-03&currency=USD&count=10&page=0
+     localhost:8088/v1/rates?date=2022-06-03&currency=USD&count=10&page=0
 
 
 **Get by date**
           
      GET
-     localhost:8088?date=2022-06-03&count=10&page=0
+     localhost:8088/v1/rates?date=2022-06-03&count=10&page=0
 
 
 **Get by currency**
      
      GET
-     localhost:8080?currency=USD&count=10&page=0
+     localhost:8088/v1/rates?currency=USD&count=10&page=0
 
 
 example:
