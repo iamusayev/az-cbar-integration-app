@@ -123,24 +123,21 @@ No authorization needed for the following methods
 
   - GET
   
-
-     localhost:8088/v1/rates?date=2022-06-03&currency=USD&count=10&page=0
+        localhost:8088/v1/rates?date=2022-06-03&currency=USD&count=10&page=0
 
 
 **Get by date**
           
   - GET
   
-   
-     localhost:8088/v1/rates?date=2022-06-03&count=10&page=0
+        localhost:8088/v1/rates?date=2022-06-03&count=10&page=0
 
 
 **Get by currency**
      
 - GET
-  
-    
-     localhost:8088/v1/rates?currency=USD&count=10&page=0
+
+      localhost:8088/v1/rates?currency=USD&count=10&page=0
 
 
 example:
