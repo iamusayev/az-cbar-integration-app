@@ -10,10 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @XmlRootElement(name = "ValType")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@ToString
+@Data
 public class ValType  {
 
     @XmlAttribute(name = "Type")
