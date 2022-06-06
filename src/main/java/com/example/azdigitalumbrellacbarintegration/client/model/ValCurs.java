@@ -21,7 +21,7 @@ import java.util.List;
 public class ValCurs implements Serializable {
     
     @XmlAttribute(name = "Date")
-    public String localDate;
+    public String date;
     
     @XmlAttribute(name = "Name")
     public String name;
