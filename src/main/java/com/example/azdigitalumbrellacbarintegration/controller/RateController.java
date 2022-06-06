@@ -21,14 +21,14 @@ public class RateController {
 
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     public void save(LocalDate date) {
         rateService.save(date);
     }
 
     @DeleteMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(NO_CONTENT)
     public void deleteRateByDate(LocalDate date) {
         rateService.deleteByDate(date);
     }
