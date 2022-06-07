@@ -20,7 +20,7 @@ public class CbarClient {
     private RestTemplate restTemplate;
 
     @GetMapping
-    public ValCurs getRatesByDate(LocalDate date) {
+    public ValCurs fetchRatesByDate(LocalDate date) {
         String url = getUrl(date);
         try {
             ValCurs response = restTemplate.getForObject(url, ValCurs.class);
