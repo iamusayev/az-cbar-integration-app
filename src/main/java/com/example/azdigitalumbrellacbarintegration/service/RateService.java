@@ -30,25 +30,25 @@ public class RateService {
     private final CbarClient cbarClient;
 
     public void save(LocalDate date) {
-
+        
         log.info("ActionLog.save.start: {} ", date);
-
+        
         List<RateEntity> rates = findRateByDate(date);
         if (rates.size() == 0) {
             var ratesByDate = cbarClient.getRatesByDate(date);
             var rateEntities = RateMapper.mapValCursToListRateEntities(ratesByDate);
             rateRepository.saveAll(rateEntities);
-
+         
             log.info("ActionLog.save.success: {} ", date);
-
+            
         } else if (rates.size() > 0 && rates.get(0).getStatus().equals(Status.DELETED)) {
             for (RateEntity rate : rates) {
                 rate.setStatus(Status.ACTIVE);
             }
             rateRepository.saveAll(rates);
-
+        
             log.info("ActionLog.save.status activated: {}", date);
-
+        
         } else {
             throw new RateException(ExceptionConstants.RATE_EXCEPTION_MESSAGE, ExceptionConstants.RATE_EXCEPTION_CODE);
         }
