@@ -76,7 +76,6 @@ public class RateService {
     }
 
 
-    @Transactional
     public void deleteByDate(LocalDate date) {
         log.info("ActionLog.deleteByDate.start: date {}", date);
 
