@@ -29,30 +29,22 @@ public class RateService {
     private final RateRepository rateRepository;
     private final CbarClient cbarClient;
 
-    public void save(LocalDate date) {
+    log.info("ActionLog.save.start date:{} ", date);
+        ValCurs ratesFromCbarByDate = cbarClient.getRatesByDate(date);
+
+        List<RateEntity> rates = findRateByDate(BuildHelper.buildDate(ratesFromCbarByDate));
+        if (rates.isEmpty()) {
         
-        log.info("ActionLog.save.start: {} ", date);
-        
-        List<RateEntity> rates = findRatesByDate(date);
-        if (rates.size() == 0) {
-            var ratesByDate = cbarClient.fetchRatesByDate(date);
-            var rateEntities = RateMapper.mapValCursToListRateEntities(ratesByDate);
+            var rateEntities = RateMapper.mapValCursToListRateEntities(ratesFromCbarByDate);
             rateRepository.saveAll(rateEntities);
-         
-            log.info("ActionLog.save.success: {} ", date);
             
-        } else if (rates.size() > 0 && rates.get(0).getStatus().equals(Status.DELETED)) {
-            for (RateEntity rate : rates) {
-                rate.setStatus(Status.ACTIVE);
-            }
-            rateRepository.saveAll(rates);
-        
-            log.info("ActionLog.save.status activated: {}", date);
-        
+            log.info("ActionLog.save.success date: {} ", date);
         } else {
+            
+            log.error("ActionLog.save.error date: {}", date);
+            
             throw new RateException(ExceptionConstants.RATE_EXCEPTION_MESSAGE, ExceptionConstants.RATE_EXCEPTION_CODE);
         }
-    }
 
 
     public PageableRateDto getRates(RateCriteria rateCriteria, PageCriteria pageCriteria) {
@@ -84,18 +76,14 @@ public class RateService {
     }
 
 
+    @Transactional
     public void deleteByDate(LocalDate date) {
         log.info("ActionLog.deleteByDate.start: date {}", date);
 
-        List<RateEntity> rates = findRateByDate(date);
-        for (RateEntity rate : rates) {
-            rate.setStatus(Status.DELETED);
-        }
-        rateRepository.saveAll(rates);
+        rateRepository.deleteAllByDate(date);
 
         log.info("ActionLog.deleteByDate.success: date {}", date);
     }
-
     
     
     
