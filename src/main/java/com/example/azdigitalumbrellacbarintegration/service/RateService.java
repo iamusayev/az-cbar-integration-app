@@ -96,8 +96,9 @@ public class RateService {
         log.info("ActionLog.deleteByDate.success: date {}", date);
     }
 
-
-
+    
+    
+    
             private List<RateEntity> findRateByDate(LocalDate date) {
                 return rateRepository.findAllByDate(date);
             }
