@@ -38,8 +38,8 @@ public class CbarClient {
         var month = date.getMonthValue();
         var year = date.getYear();
 
-        Object urlDay = day < 10 ? "0" + day : day;
-        Object urlMonth = month < 10 ? "0" + month : month;
+        var urlDay = day < 10 ? "0" + day : day;
+        var urlMonth = month < 10 ? "0" + month : month;
 
         return String.format("https://www.cbar.az/currencies/%s.xml", urlDay + "." +   urlMonth + "." + year);
     }
