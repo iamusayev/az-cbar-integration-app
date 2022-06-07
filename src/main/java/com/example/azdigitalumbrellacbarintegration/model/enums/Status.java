@@ -1,6 +1,6 @@
 package com.example.azdigitalumbrellacbarintegration.model.enums;
 
-public enum Status {
+public enum Status {    
     ACTIVE,
     DELETED
 }
