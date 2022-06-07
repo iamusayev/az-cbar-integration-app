@@ -13,9 +13,9 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 public class SimpleAuthenticationEntryPoint implements AuthenticationEntryPoint {
+    
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-
         HashMap<String, String> map = new HashMap<>(2);
         map.put("uri", request.getRequestURI());
         map.put("msg", "Having problems with authentication");
