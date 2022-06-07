@@ -18,7 +18,7 @@ import static javax.persistence.GenerationType.AUTO;
 public class RoleEntity {
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
