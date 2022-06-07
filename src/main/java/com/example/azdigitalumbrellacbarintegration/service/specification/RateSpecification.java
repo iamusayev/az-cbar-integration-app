@@ -20,7 +20,6 @@ public class RateSpecification implements Specification<RateEntity> {
 
     private static final String CURRENCY = "code";
     private static final String DATE = "date";
-    private static final String STATUS = "status";
 
     public RateSpecification(RateCriteria rateCriteria) {
         this.rateCriteria = rateCriteria;
@@ -38,8 +37,6 @@ public class RateSpecification implements Specification<RateEntity> {
                 predicates.add(criteriaBuilder.equal(root.get(DATE),
                         LocalDate.parse(rateCriteria.getDate())));
             }
-            predicates.add(criteriaBuilder.equal(root.get(STATUS),
-                    Status.ACTIVE));
         }
         return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
     }
