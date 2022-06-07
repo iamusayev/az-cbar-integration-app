@@ -28,8 +28,6 @@ public class RateEntity {
     private LocalDate date;
     @Enumerated(EnumType.STRING)
     private Type type;
-    @Enumerated(EnumType.STRING)
-    private Status status;
 
 
             @Override
