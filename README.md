@@ -87,7 +87,7 @@ You need to send the "access" token in the request's header by calling POST and 
 
  - GET
     
-       localhost:8088/v1/auth/token/refresh 
+       localhost:8088/v1/auth/token/refresh
 
 and in the request's header send "refresh token".
 
