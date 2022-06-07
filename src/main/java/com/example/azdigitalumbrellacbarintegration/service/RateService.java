@@ -28,8 +28,11 @@ public class RateService {
 
     private final RateRepository rateRepository;
     private final CbarClient cbarClient;
-
-    log.info("ActionLog.save.start date:{} ", date);
+    
+    public void save(String date){
+        
+        log.info("ActionLog.save.start date:{} ", date);
+        
         ValCurs ratesFromCbarByDate = cbarClient.getRatesByDate(date);
 
         List<RateEntity> rates = findRateByDate(BuildHelper.buildDate(ratesFromCbarByDate));
