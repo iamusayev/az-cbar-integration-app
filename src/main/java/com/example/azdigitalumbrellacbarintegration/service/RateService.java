@@ -33,9 +33,9 @@ public class RateService {
         
         log.info("ActionLog.save.start: {} ", date);
         
-        List<RateEntity> rates = findRateByDate(date);
+        List<RateEntity> rates = findRatesByDate(date);
         if (rates.size() == 0) {
-            var ratesByDate = cbarClient.getRatesByDate(date);
+            var ratesByDate = cbarClient.fetchRatesByDate(date);
             var rateEntities = RateMapper.mapValCursToListRateEntities(ratesByDate);
             rateRepository.saveAll(rateEntities);
          
@@ -99,7 +99,7 @@ public class RateService {
     
     
     
-            private List<RateEntity> findRateByDate(LocalDate date) {
+            private List<RateEntity> findRatesByDate(LocalDate date) {
                 return rateRepository.findAllByDate(date);
             }
 
