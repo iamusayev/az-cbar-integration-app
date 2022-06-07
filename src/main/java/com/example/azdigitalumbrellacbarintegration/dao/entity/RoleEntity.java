@@ -22,15 +22,6 @@ public class RoleEntity {
     private Long id;
     private String name;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id")
-    )
-    List<UserEntity> users;
-
-
 
             @Override
             public boolean equals(Object o) {
