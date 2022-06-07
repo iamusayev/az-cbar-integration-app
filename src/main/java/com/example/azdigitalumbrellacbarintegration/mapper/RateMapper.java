@@ -49,7 +49,6 @@ public class RateMapper {
             RateEntity rate = BuildHelper.buildRateEntity(currency, Type.FOREIGN_CURRENCY, localDate);
             rates.add(rate);
         }
-
         return rates;
     }
 
