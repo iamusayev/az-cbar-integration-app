@@ -42,7 +42,7 @@ https://www.cbar.az/currencies/25.05.2022.xml
 
 -----
 
-                                                             Database diagram
+                                                    Database diagram
 
 [![newdb.png](https://i.postimg.cc/ncDGNkNz/newdb.png)](https://postimg.cc/ppPjFDWb)
 
