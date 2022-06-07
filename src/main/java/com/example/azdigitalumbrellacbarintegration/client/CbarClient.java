@@ -26,7 +26,7 @@ public class CbarClient {
             ValCurs response = restTemplate.getForObject(url, ValCurs.class);
             return response;
         } catch (Exception ex) {
-            log.error("ActionLog.getRatesByDate.error: {}", ex);
+            log.error("ActionLog.fetchRatesByDate.error: {}", ex);
             throw new ClientException(ExceptionConstants.CLIENT_EXCEPTION_MESSAGE, "500");
         }
     }
