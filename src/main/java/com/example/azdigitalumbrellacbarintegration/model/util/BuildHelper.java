@@ -27,10 +27,9 @@ public class BuildHelper {
                 .name(valute.getName())
                 .code(valute.getCode())
                 .nominal(valute.getNominal())
-                .type(type)
-                .status(Status.ACTIVE)
-                .value(valute.getValue())
                 .date(date)
+                .type(type)
+                .value(valute.getValue())
                 .build();
     }
 }
