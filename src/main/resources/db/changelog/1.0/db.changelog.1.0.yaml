@@ -33,11 +33,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: type
-                  type: VARCHAR(16)
-                  constraints:
-                    nullable: false
-              - column:
                   name: status
                   type: VARCHAR(16)
                   constraints:
