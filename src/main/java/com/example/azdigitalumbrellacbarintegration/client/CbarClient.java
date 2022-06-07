@@ -32,12 +32,16 @@ public class CbarClient {
     }
 
 
-    private static String getUrl(LocalDate date) {
+   private static String getUrl(LocalDate date) {
         date.format(DateTimeFormatter.BASIC_ISO_DATE);
         var day = date.getDayOfMonth();
         var month = date.getMonthValue();
         var year = date.getYear();
-        return String.format("https://www.cbar.az/currencies/%s.xml", "0" + day + "." + "0" + month + "." + year);
+
+        Object urlDay = day < 10 ? "0" + day : day;
+        Object urlMonth = month < 10 ? "0" + month : month;
+
+        return String.format("https://www.cbar.az/currencies/%s.xml", urlDay + "." +   urlMonth + "." + year);
     }
 
 }
