@@ -55,7 +55,7 @@ https://www.cbar.az/currencies/25.05.2022.xml
 
 ----- 
 
-- roles table
+- roles table 
 
 [![admin-table.png](https://i.postimg.cc/h4wyp4CV/admin-table.png)](https://postimg.cc/jCH4jTYj)
 
