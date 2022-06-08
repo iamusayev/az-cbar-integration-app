@@ -22,7 +22,6 @@ public class BuildHelper {
 
 
     public static RateEntity buildRateEntity(Valute valute, Type type, LocalDate date) {
-        valute.getNominal();
         return RateEntity.builder()
                 .name(valute.getName())
                 .code(valute.getCode())
