@@ -29,7 +29,7 @@ public class RateService {
     private final RateRepository rateRepository;
     private final CbarClient cbarClient;
     
-    public void save(String date){
+    public void save(LocalDate date){
         
         log.info("ActionLog.save.start date:{} ", date);
         
