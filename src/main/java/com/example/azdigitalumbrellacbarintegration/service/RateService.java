@@ -34,8 +34,9 @@ public class RateService {
         log.info("ActionLog.save.start date:{} ", date);
         
         ValCurs ratesFromCbarByDate = cbarClient.getRatesByDate(date);
-
-        List<RateEntity> rates = findRateByDate(BuildHelper.buildDate(ratesFromCbarByDate));
+        var dateFromCbar = BuildHelper.buildDate(ratesFromCbarByDate)
+            
+        List<RateEntity> rates = findRateByDate(dateFromCbar);
         if (rates.isEmpty()) {
         
             var rateEntities = RateMapper.mapValCursToListRateEntities(ratesFromCbarByDate);
