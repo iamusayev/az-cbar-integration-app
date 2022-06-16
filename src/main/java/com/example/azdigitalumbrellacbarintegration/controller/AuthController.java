@@ -15,7 +15,7 @@ import java.io.IOException;
 @RequestMapping("v1/auth")
 public class AuthController {
 
-    private final AuthService tokenService;
+    private final AuthService authService;
 
 
     @GetMapping("/token/refresh")
